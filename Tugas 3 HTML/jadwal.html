@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jadwal Harian Santri</title>
+  <link rel="stylesheet" href="jadwal.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="image/logo.webp" alt="Logo HSI" class="logo">
+    <h1>Jadwal Harian Santri</h1>
+    <p class="subtitle">Pekan ini: Materi HTML &amp; CSS</p>
+    <hr class="divider">
+    <nav class="nav-pills" aria-label="Utama">
+      <a href="index.html" class="pill">Beranda</a>
+      <a href="biodata.html" class="pill">Biodata</a>
+      <a href="jadwal.html" class="pill active">Jadwal</a>
+      <a href="galeri.html" class="pill">Galeri</a>
+      <a href="feedback.html" class="pill">Feedback</a>
+    </nav>
+    <hr class="divider" />
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 class="card-title">Jadwal Kegiatan Belajar</h2>
+
+      <div class="table-wrap">
+        <table class="schedule" role="table" aria-label="Jadwal kegiatan belajar">
+          <thead>
+            <tr class="head-row-1">
+              <th colspan="2" scope="colgroup" class="rowspan">Waktu</th>
+              <th rowspan="2" scope="colgroup">Hari</th>
+              <th rowspan="2" scope="col">Kegiatan</th>
+            </tr>
+            <tr class="head-row-2">
+              <th scope="col">Mulai</th>
+              <th scope="col">Selesai</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="time">08:00</td>
+              <td class="time">10:00</td>
+              <td>Senin</td>
+              <td>Pelajaran Web Dasar (Teori HTML)</td>
+            </tr>
+
+            <tr>
+              <td class="time">10:00</td>
+              <td class="time">10:30</td>
+              <td></td>
+              <td>ISTIRAHAT (Snack &amp; Shalat Dhuha)</td>
+            </tr>
+
+            <tr>
+              <td class="time">10:30</td>
+              <td class="time">12:00</td>
+              <td>Senin</td>
+              <td>Latihan Praktikum HTML Table</td>
+            </tr>
+
+            <tr>
+              <td class="time">14:00</td>
+              <td class="time">16:00</td>
+              <td>Selasa</td>
+              <td>Pelajaran Web Dasar (Teori CSS &amp; Box Model)</td>
+            </tr>
+
+            <tr>
+              <td class="time">16:00</td>
+              <td class="time">16:45</td>
+              <td>Selasa</td>
+              <td>Olahraga (Renang)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/* Reset biar konsisten */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background dan font */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #1d1e23;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Judul utama */
+h1 {
+    color: #1d1e23;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* Subjudul */
+h2 {
+    text-align: center;
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+/* Garis pemisah */
+hr {
+    margin: 15px 0;
+    border: 1px solid #999;
+}
+
+/* Foto profil */
+img {
+    display: block;
+    margin: 15px auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Deskripsi singkat */
+h4 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    margin: 20px 0;
+    color: #444;
+}
+
+/* Bagian biodata */
+h3 {
+    margin: 10px 30px;
+    font-size: 22px;
+}
+
+h3 b {
+    color: blue;
+    font-size: 24px;
+}
+
+/* List */
+ul {
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+ul li {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Kontak */
+ol {
+    list-style: none;
+    margin-left: 50px;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Footer ucapan */
+h2:last-of-type {
+    text-align: center;
+    margin-top: 30px;
+    color: brown;
+    font-size: 22px;
+}

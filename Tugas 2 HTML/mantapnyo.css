@@ -1,0 +1,108 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 120px;  /* bisa lo kecilin / gedein sesuai selera */
+  display: inline-block;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: blanchedalmond; 
+
+  
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Judul */
+h1, h2 {
+  text-align: center;
+  color: #064e03; /* hijau tua */
+  margin: 10px 0;
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+
+/* Garis */
+hr {
+  border: none;
+  border-top: 1px solid #e8d9c4;
+  margin: 15px 0;
+}
+
+/* Kotak card */
+.card {
+  border: 1px solid #e8d9c4; /* krem tipis */
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 15px 20px;
+  margin: 20px 0;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Foto profil */
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 200px;        /* biar gak kebesaran */
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #e8d9c4;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 8px;
+}
+
+.profile p {
+  font-style: italic;
+  color: #666;
+}
+
+/* List */
+ul {
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+li {
+  margin: 5px 0;
+}
+
+/* Contact */
+.card p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+/* Footer */
+.thanks {
+  text-align: center;
+  color: brown;
+  margin-top: 30px;
+}
+
+a {
+  color: darkgreen;
+  text-decoration: none; /* ilangin garis bawah */
+  font-weight: bold;
+}
+
+a:hover {
+  color: brown;
+  text-decoration: underline;
+}

@@ -1,0 +1,123 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin: 30px 0 20px;
+}
+.header h1 {
+  font-size: 28px;
+  color: #1a73e8;
+}
+.header p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.navbar button {
+  border: none;
+  background: #f2f2f2;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.navbar button:hover {
+  background: #ddd;
+}
+.navbar .active {
+  background: #1a73e8;
+  color: #fff;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px 10px;
+}
+form {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 200%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+form h2 {
+  color: #1a73e8;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+form p {
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Inputs */
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-size: 14px;
+  color: #333;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Options Horizontal */
+.options {
+  display:inline-flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.options label {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items:baseline;
+  gap: 5px;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.form-actions button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.form-actions .submit {
+  background: #1a73e8;
+  color: #fff;
+}
+.form-actions button:hover {
+  opacity: 0.9;
+}

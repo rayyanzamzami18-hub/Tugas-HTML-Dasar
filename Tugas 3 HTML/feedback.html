@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Umpan Balik</title>
+  <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+
+  <!-- Judul -->
+  <header class="header">
+    <h1>Formulir Umpan Balik</h1>
+    <p>Kritik, Saran, dan Masukan</p>
+  </header>
+
+  <!-- Navigasi -->
+  <nav class="navbar">
+    <button>Beranda</button>
+    <button>Biodata</button>
+    <button>Jadwal</button>
+    <button>Galeri</button>
+    <button class="active">Feedback</button>
+  </nav>
+
+  <!-- Form -->
+  <section class="form-container">
+    <form>
+      <h2>Formulir Kontak & Saran</h2>
+      <p>Berikan masukan terbaik Anda untuk pengembangan website ini.</p>
+
+      <label>Nama Anda (Opsional):</label>
+      <input type="text" placeholder="Tulis nama Anda">
+
+      <label>Email Anda:</label>
+      <input type="email" placeholder="nama@email.com">
+
+      <label>Rating Kepuasan Website (Skala 1-10):</label>
+      <input type="number" min="1" max="10" placeholder="Masukkan angka 1 hingga 10">
+
+      <p>Rekomendasi Website Ini?</p>
+      <div class="options">
+        <label><input type="radio" name="rekomendasi"> Ya, Sangat</label>
+        <label><input type="radio" name="rekomendasi"> Mungkin Saja</label>
+        <label><input type="radio" name="rekomendasi"> Tidak</label>
+      </div>
+
+      <p>Topik yang paling menarik:</p>
+      <div class="options">
+        <label><input type="checkbox"> Biodata</label>
+        <label><input type="checkbox"> Jadwal</label>
+        <label><input type="checkbox"> Galeri</label>
+      </div>
+
+      <label>Saran Pengembangan di Bidang:</label>
+      <select>
+        <option>-- Pilih Bidang --</option>
+        <option>Desain</option>
+        <option>Konten</option>
+        <option>Fitur</option>
+      </select>
+
+      <label>Pesan/Saran Lengkap:</label>
+      <textarea placeholder="Tulis pesan dan saran Anda di sini..."></textarea>
+
+      <div class="form-actions">
+        <button type="reset">Atur Ulang</button>
+        <button type="submit" class="submit">Kirim Feedback</button>
+      </div>
+    </form>
+  </section>
+
+</body>
+</html>

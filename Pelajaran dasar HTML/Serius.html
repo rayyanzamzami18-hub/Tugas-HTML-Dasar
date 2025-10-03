@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Elemental Anime 3D - Ultimate Edition</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; }
+        canvas { display: block; }
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            z-index: 100;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        #health-bar, #enemy-health-bar {
+            width: 200px;
+            height: 20px;
+            background: rgba(0,0,0,0.7);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        #health-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff3333, #ff6666);
+            transition: width 0.3s;
+        }
+        #enemy-health-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #333, #666);
+            transition: width 0.3s;
+        }
+        .element-btn {
+            padding: 10px 15px;
+            margin: 3px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        #fire { background: linear-gradient(135deg, #ff4444, #ff8800); }
+        #water { background: linear-gradient(135deg, #4444ff, #00aaff); }
+        #wind { background: linear-gradient(135deg, #44ff44, #88ff88); }
+        #earth { background: linear-gradient(135deg, #ffaa44, #ffcc66); }
+        .active {
+            box-shadow: 0 0 15px rgba(255,255,255,0.8);
+            transform: scale(1.1);
+        }
+        #game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+        }
+        #game-over h2 {
+            margin-top: 0;
+            color: #ff6666;
+        }
+        #restart-btn {
+            padding: 10px 20px;
+            background: #ff6666;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <div>Player Health: <div id="health-bar"><div id="health-fill"></div></div></div>
+        <div>Enemy Health: <div id="enemy-health-bar"><div id="enemy-health-fill"></div></div></div>
+        <div>Elemental Power:</div>
+        <button class="element-btn active" id="fire">🔥 Api</button>
+        <button class="element-btn" id="water">💧 Air</button>
+        <button class="element-btn" id="wind">🌪️ Angin</button>
+        <button class="element-btn" id="earth">🌱 Tanah</button>
+    </div>
+    
+    <div id="game-over">
+        <h2>GAME OVER</h2>
+        <p>Kamu dikalahkan musuh!</p>
+        <button id="restart-btn">Main Lagi</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Inisialisasi Three.js
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x87CEEB);
+        scene.fog = new THREE.Fog(0x87CEEB, 10, 100);
+        
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        // Lighting yang lebih realistis
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(10, 20, 15);
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = 2048;
+        directionalLight.shadow.mapSize.height = 2048;
+        scene.add(directionalLight);
+
+        // Karakter Anime yang Detail
+        const characterGroup = new THREE.Group();
+        
+        // Badan
+        const bodyGeometry = new THREE.CylinderGeometry(0.5, 0.7, 1.5, 8);
+        const bodyMaterial = new THREE.MeshLambertMaterial({ color: 0x4488ff });
+        const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+        body.position.y = 1;
+        body.castShadow = true;
+        characterGroup.add(body);
+        
+        // Baju (jaket)
+        const jacketGeometry = new THREE.CylinderGeometry(0.52, 0.72, 1.2, 8);
+        const jacketMaterial = new THREE.MeshLambertMaterial({ color: 0x2244aa });
+        const jacket = new THREE.Mesh(jacketGeometry, jacketMaterial);
+        jacket.position.y = 1.1;
+        jacket.castShadow = true;
+        characterGroup.add(jacket);
+        
+        // Kepala
+        const headGeometry = new THREE.SphereGeometry(0.6, 16, 16);
+        const headMaterial = new THREE.MeshLambertMaterial({ color: 0xffccaa });
+        const head = new THREE.Mesh(headGeometry, headMaterial);
+        head.position.y = 2.3;
+        head.castShadow = true;
+        characterGroup.add(head);
+        
+        // Rambut anime
+        const hairGeometry = new THREE.SphereGeometry(0.65, 16, 16);
+        const hairMaterial = new THREE.MeshLambertMaterial({ color: 0x333333 });
+        const hair = new THREE.Mesh(hairGeometry, hairMaterial);
+        hair.position.y = 2.5;
+        hair.scale.set(1, 1.3, 1);
+        characterGroup.add(hair);
+        
+        // Mata anime yang lebih detail
+        const eyeGeometry = new THREE.SphereGeometry(0.12, 8, 8);
+        const eyeMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+        const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+        leftEye.position.set(-0.2, 2.3, 0.5);
+        characterGroup.add(leftEye);
+        const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+        rightEye.position.set(0.2, 2.3, 0.5);
+        characterGroup.add(rightEye);
+        
+        // Mulut
+        const mouthGeometry = new THREE.TorusGeometry(0.1, 0.03, 8, 16, Math.PI);
+        const mouthMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+        const mouth = new THREE.Mesh(mouthGeometry, mouthMaterial);
+        mouth.position.set(0, 2.0, 0.5);
+        mouth.rotation.x = Math.PI;
+        characterGroup.add(mouth);
+        
+        // Tangan
+        const armGeometry = new THREE.CylinderGeometry(0.15, 0.15, 1, 8);
+        const armMaterial = new THREE.MeshLambertMaterial({ color: 0xffccaa });
+        const leftArm = new THREE.Mesh(armGeometry, armMaterial);
+        leftArm.position.set(-0.7, 1.2, 0);
+        leftArm.rotation.z = Math.PI/6;
+        leftArm.castShadow = true;
+        characterGroup.add(leftArm);
+        
+        const rightArm = new THREE.Mesh(armGeometry, armMaterial);
+        rightArm.position.set(0.7, 1.2, 0);
+        rightArm.rotation.z = -Math.PI/6;
+        rightArm.castShadow = true;
+        characterGroup.add(rightArm);
+        
+        // Kaki
+        const legGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1.2, 8);
+        const legMaterial = new THREE.MeshLambertMaterial({ color: 0x333333 });
+        const leftLeg = new THREE.Mesh(legGeometry, legMaterial);
+        leftLeg.position.set(-0.3, 0, 0);
+        leftLeg.castShadow = true;
+        characterGroup.add(leftLeg);
+        
+        const rightLeg = new THREE.Mesh(legGeometry, legMaterial);
+        rightLeg.position.set(0.3, 0, 0);
+        rightLeg.castShadow = true;
+        characterGroup.add(rightLeg);
+        
+        scene.add(characterGroup);
+        characterGroup.position.y = 1;
+        
+        // Musuh 3D (Monster)
+        const enemyGroup = new THREE.Group();
+        
+        // Badan monster
+        const enemyBodyGeometry = new THREE.SphereGeometry(1, 16, 16);
+        const enemyBodyMaterial = new THREE.MeshLambertMaterial({ color: 0xaa3333 });
+        const enemyBody = new THREE.Mesh(enemyBodyGeometry, enemyBodyMaterial);
+        enemyBody.position.y = 2;
+        enemyBody.castShadow = true;
+        enemyGroup.add(enemyBody);
+        
+        // Mata monster
+        const enemyEyeGeometry = new THREE.SphereGeometry(0.2, 8, 8);
+        const enemyEyeMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        const enemyLeftEye = new THREE.Mesh(enemyEyeGeometry, enemyEyeMaterial);
+        enemyLeftEye.position.set(-0.4, 2.3, 0.8);
+        enemyGroup.add(enemyLeftEye);
+        const enemyRightEye = new THREE.Mesh(enemyEyeGeometry, enemyEyeMaterial);
+        enemyRightEye.position.set(0.4, 2.3, 0.8);
+        enemyGroup.add(enemyRightEye);
+        
+        // Tangan monster
+        const enemyArmGeometry = new THREE.CylinderGeometry(0.3, 0.2, 1.5, 8);
+        const enemyArmMaterial = new THREE.MeshLambertMaterial({ color: 0xaa3333 });
+        const enemyLeftArm = new THREE.Mesh(enemyArmGeometry, enemyArmMaterial);
+        enemyLeftArm.position.set(-1.2, 1.5, 0);
+        enemyLeftArm.rotation.z = Math.PI/4;
+        enemyLeftArm.castShadow = true;
+        enemyGroup.add(enemyLeftArm);
+        
+        const enemyRightArm = new THREE.Mesh(enemyArmGeometry, enemyArmMaterial);
+        enemyRightArm.position.set(1.2, 1.5, 0);
+        enemyRightArm.rotation.z = -Math.PI/4;
+        enemyRightArm.castShadow = true;
+        enemyGroup.add(enemyRightArm);
+        
+        // Kaki monster
+        const enemyLegGeometry = new THREE.CylinderGeometry(0.4, 0.3, 1, 8);
+        const enemyLegMaterial = new THREE.MeshLambertMaterial({ color: 0x882222 });
+        const enemyLeftLeg = new THREE.Mesh(enemyLegGeometry, enemyLegMaterial);
+        enemyLeftLeg.position.set(-0.5, 0.5, 0);
+        enemyLeftLeg.castShadow = true;
+        enemyGroup.add(enemyLeftLeg);
+        
+        const enemyRightLeg = new THREE.Mesh(enemyLegGeometry, enemyLegMaterial);
+        enemyRightLeg.position.set(0.5, 0.5, 0);
+        enemyRightLeg.castShadow = true;
+        enemyGroup.add(enemyRightLeg);
+        
+        scene.add(enemyGroup);
+        enemyGroup.position.set(10, 1, 10);
+        
+        // Lantai yang lebih detail
+        const floorGeometry = new THREE.PlaneGeometry(100, 100);
+        const floorTexture = new THREE.TextureLoader().load('https://threejs.org/examples/textures/grass.jpg');
+        floorTexture.wrapS = THREE.RepeatWrapping;
+        floorTexture.wrapT = THREE.RepeatWrapping;
+        floorTexture.repeat.set(20, 20);
+        const floorMaterial = new THREE.MeshLambertMaterial({ map: floorTexture });
+        const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+        floor.rotation.x = -Math.PI / 2;
+        floor.receiveShadow = true;
+        scene.add(floor);
+        
+        // Bebatuan untuk dekorasi
+        const rockGeometry = new THREE.DodecahedronGeometry(1, 0);
+        const rockMaterial = new THREE.MeshLambertMaterial({ color: 0x888888 });
+        
+        for (let i = 0; i < 20; i++) {
+            const rock = new THREE.Mesh(rockGeometry, rockMaterial);
+            rock.position.set(
+                Math.random() * 80 - 40,
+                0.5,
+                Math.random() * 80 - 40
+            );
+            rock.scale.set(
+                Math.random() * 1.5 + 0.5,
+                Math.random() * 1 + 0.5,
+                Math.random() * 1.5 + 0.5
+            );
+            rock.rotation.set(
+                Math.random() * Math.PI,
+                Math.random() * Math.PI,
+                Math.random() * Math.PI
+            );
+            rock.castShadow = true;
+            rock.receiveShadow = true;
+            scene.add(rock);
+        }
+        
+        // Kamera follow karakter
+        camera.position.set(0, 8, 15);
+        camera.lookAt(characterGroup.position);
+        
+        // Kontrol Keyboard
+        const keys = {};
+        document.addEventListener('keydown', (e) => keys[e.key.toLowerCase()] = true);
+        document.addEventListener('keyup', (e) => keys[e.key.toLowerCase()] = false);
+        
+        // Elemental Selector
+        let currentElement = 'fire';
+        document.querySelectorAll('.element-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.active').classList.remove('active');
+                btn.classList.add('active');
+                currentElement = btn.id;
+            });
+        });
+        
+        // Sistem Partikel Elemental yang Lebih Keren
+        const particles = [];
+        const enemyProjectiles = [];
+        
+        function createParticle(type, position, isEnemy = false) {
+            let geometry, material, count = 15;
+            
+            switch(type) {
+                case 'fire':
+                    geometry = new THREE.SphereGeometry(0.3, 8, 8);
+                    material = new THREE.MeshBasicMaterial({ 
+                        color: Math.random() > 0.5 ? 0xff4444 : 0xffaa00,
+                        transparent: true,
+                        opacity: 0.8
+                    });
+                    count = 20;
+                    break;
+                case 'water':
+                    geometry = new THREE.TetrahedronGeometry(0.4, 0);
+                    material = new THREE.MeshBasicMaterial({ 
+                        color: 0x4444ff,
+                        transparent: true,
+                        opacity: 0.7
+                    });
+                    count = 15;
+                    break;
+                case 'wind':
+                    geometry = new THREE.OctahedronGeometry(0.3, 0);
+                    material = new THREE.MeshBasicMaterial({ 
+                        color: 0x44ff44,
+                        transparent: true,
+                        opacity: 0.5
+                    });
+                    count = 25;
+                    break;
+                case 'earth':
+                    geometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
+                    material = new THREE.MeshBasicMaterial({ 
+                        color: 0xffaa44,
+                        transparent: true,
+                        opacity: 0.9
+                    });
+                    count = 10;
+                    break;
+            }
+            
+            for (let i = 0; i < count; i++) {
+                const particle = new THREE.Mesh(geometry, material.clone());
+                particle.position.copy(position);
+                
+                if (isEnemy) {
+                    particle.velocity = new THREE.Vector3(
+                        (Math.random() - 0.5) * 0.2,
+                        Math.random() * 0.1 + 0.05,
+                        (Math.random() - 0.5) * 0.2
+                    );
+                    enemyProjectiles.push(particle);
+                } else {
+                    particle.velocity = new THREE.Vector3(
+                        (Math.random() - 0.5) * 0.3,
+                        Math.random() * 0.2 + 0.1,
+                        (Math.random() - 0.5) * 0.3
+                    );
+                    particles.push(particle);
+                }
+                
+                scene.add(particle);
+            }
+        }
+        
+        // Mouse click untuk nge-cast elemental
+        document.addEventListener('click', () => {
+            if (gameActive) {
+                createParticle(currentElement, characterGroup.position.clone().add(new THREE.Vector3(0, 2, 0)));
+            }
+        });
+        
+        // Health System
+        let health = 100;
+        let enemyHealth = 100;
+        let gameActive = true;
+        
+        function updateHealth() {
+            document.getElementById('health-fill').style.width = health + '%';
+            document.getElementById('enemy-health-fill').style.width = enemyHealth + '%';
+            
+            if (health <= 0) {
+                gameActive = false;
+                document.getElementById('game-over').style.display = 'block';
+            }
+            
+            if (enemyHealth <= 0) {
+                enemyHealth = 0;
+                // Musuh mati, respawn di posisi random
+                enemyGroup.position.set(
+                    Math.random() * 40 - 20,
+                    1,
+                    Math.random() * 40 - 20
+                );
+                enemyHealth = 100;
+            }
+        }
+        
+        // Restart game
+        document.getElementById('restart-btn').addEventListener('click', () => {
+            health = 100;
+            enemyHealth = 100;
+            gameActive = true;
+            characterGroup.position.set(0, 1, 0);
+            enemyGroup.position.set(10, 1, 10);
+            document.getElementById('game-over').style.display = 'none';
+            updateHealth();
+        });
+        
+        // AI Musuh
+        let enemyAttackCooldown = 0;
+        
+        function updateEnemy() {
+            if (!gameActive) return;
+            
+            // Musuh ngejar player
+            const direction = new THREE.Vector3()
+                .subVectors(characterGroup.position, enemyGroup.position)
+                .normalize();
+            
+            enemyGroup.position.add(direction.multiplyScalar(0.03));
+            
+            // Musuh attack player
+            enemyAttackCooldown--;
+            if (enemyAttackCooldown <= 0 && 
+                enemyGroup.position.distanceTo(characterGroup.position) < 15) {
+                createParticle('fire', enemyGroup.position.clone().add(new THREE.Vector3(0, 2, 0)), true);
+                enemyAttackCooldown = 100;
+            }
+        }
+        
+        // Animasi karakter
+        let walkCycle = 0;
+        
+        function animateCharacter() {
+            if (keys['w'] || keys['s'] || keys['a'] || keys['d']) {
+                walkCycle += 0.2;
+                
+                // Animasi jalan
+                characterGroup.children[7].rotation.x = Math.sin(walkCycle) * 0.5; // kaki kiri
+                characterGroup.children[8].rotation.x = Math.sin(walkCycle + Math.PI) * 0.5; // kaki kanan
+                
+                characterGroup.children[5].rotation.x = Math.sin(walkCycle + Math.PI) * 0.3; // tangan kiri
+                characterGroup.children[6].rotation.x = Math.sin(walkCycle) * 0.3; // tangan kanan
+            }
+        }
+        
+        // Game Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (!gameActive) {
+                renderer.render(scene, camera);
+                return;
+            }
+            
+            // Gerakan karakter
+            const speed = 2.15;
+            if (keys['w'] || keys['arrowup']) characterGroup.position.z -= speed;
+            if (keys['s'] || keys['arrowdown']) characterGroup.position.z += speed;
+            if (keys['a'] || keys['arrowleft']) characterGroup.position.x -= speed;
+            if (keys['d'] || keys['arrowright']) characterGroup.position.x += speed;
+            
+            // Update kamera
+            camera.position.x = characterGroup.position.x;
+            camera.position.z = characterGroup.position.z + 15;
+            camera.lookAt(characterGroup.position);
+            
+            // Update musuh
+            updateEnemy();
+            
+            // Animasi karakter
+            animateCharacter();
+            
+            // Update partikel player
+            for(let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.position.add(p.velocity);
+                
+                // Cek collision dengan musuh
+                if (p.position.distanceTo(enemyGroup.position) < 2) {
+                    enemyHealth -= 2;
+                    updateHealth();
+                    scene.remove(p);
+                    particles.splice(i, 1);
+                    continue;
+                }
+                
+                // Gravitasi
+                if (currentElement !== 'wind') {
+                    p.velocity.y -= 0.02;
+                }
+                
+                p.material.opacity -= 0.01;
+                
+                if(p.material.opacity <= 0) {
+                    scene.remove(p);
+                    particles.splice(i, 1);
+                }
+            }
+            
+            // Update partikel musuh
+            for(let i = enemyProjectiles.length - 1; i >= 0; i--) {
+                const p = enemyProjectiles[i];
+                p.position.add(p.velocity);
+                
+                // Cek collision dengan player
+                if (p.position.distanceTo(characterGroup.position) < 2) {
+                    health -= 5;
+                    updateHealth();
+                    scene.remove(p);
+                    enemyProjectiles.splice(i, 1);
+                    continue;
+                }
+                
+                p.velocity.y -= 0.02;
+                p.material.opacity -= 0.01;
+                
+                if(p.material.opacity <= 0) {
+                    scene.remove(p);
+                    enemyProjectiles.splice(i, 1);
+                }
+            }
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Start game
+        animate();
+        updateHealth();
+    </script>
+</body>
+</html>
