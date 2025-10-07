@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulir Umpan Balik</title>
-  <link rel="stylesheet" href="feedback.css">
+  <title>Formulir Saran dan Masukan</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Judul -->
   <header class="header">
-    <h1>Formulir Umpan Balik</h1>
+     <img src="image/logo.webp" alt="Logo HSI" class="logo">
+    <h1>Formulir Saran dan Masukan</h1>
     <p>Kritik, Saran, dan Masukan</p>
   </header>
 
   <!-- Navigasi -->
   <nav class="navbar">
-    <button>Beranda</button>
-    <button>Biodata</button>
-    <button>Jadwal</button>
-    <button>Galeri</button>
-    <button class="active">Feedback</button>
+    <a href="index.html">Beranda</a>
+    <a href="biodata.html">Biodata</a>
+    <a href="jadwal.html">Jadwal</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="feedback.html" class="active">Feedback</a>
   </nav>
-
   <!-- Form -->
   <section class="form-container">
     <form>
@@ -50,6 +50,7 @@
         <label><input type="checkbox"> Biodata</label>
         <label><input type="checkbox"> Jadwal</label>
         <label><input type="checkbox"> Galeri</label>
+        <label><input type="checkbox"> Feedback</label>
       </div>
 
       <label>Saran Pengembangan di Bidang:</label>
@@ -58,14 +59,16 @@
         <option>Desain</option>
         <option>Konten</option>
         <option>Fitur</option>
+        <option>UI/UX</option>
+        <option>Kalimat</option>
       </select>
 
-      <label>Pesan/Saran Lengkap:</label>
+      <label>Pesan/Saran untuk kemajuan website ini:</label>
       <textarea placeholder="Tulis pesan dan saran Anda di sini..."></textarea>
 
       <div class="form-actions">
-        <button type="reset">Atur Ulang</button>
-        <button type="submit" class="submit">Kirim Feedback</button>
+        <button type="reset">Restart</button>
+        <button type="submit" class="submit">Send the Feedback</button>
       </div>
     </form>
   </section>

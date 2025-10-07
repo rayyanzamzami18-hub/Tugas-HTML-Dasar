@@ -1,0 +1,541 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fb; /* dark elegan */
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+header h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #2d2020;
+}
+
+header p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 20px;
+  background: #1e1e2e;
+  color: #eee;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background: #6c63ff;
+  color: #fff;
+}
+
+/* Card */
+.card {
+  background: #554f51;
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  border-left: 5px solid #6c63ff; /* garis samping elegan */
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Minat section */
+.minat-content {
+  display: inline-table;
+  align-items: center;
+  gap: 15px;
+  line-height: 200%;
+  padding-top: 40px;
+}
+h2 {
+  margin: 5px 0 20px 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+.box h3 {
+  margin-top: 0;
+  border-bottom: 2px solid #8000ff; /* garis ungu di bawah judul */
+  padding-bottom: 5px;
+}
+
+.minat-content img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%; /* bulat sempurna */
+  border: 3px solid #6c63ff; /* biar lebih elegan */
+}
+/* === Gaya Dasar Halaman === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* === Header === */
+header {
+  text-align: center;
+  padding: 30px 0 10px;
+}
+header h1 {
+  color: #1a3dee;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+header p {
+  color: #555;
+}
+
+/* === Navbar === */
+nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  background: #1a3dee;
+  color: #fff;
+}
+nav a.active {
+  background: #1a3dee;
+  color: #fff;
+}
+
+/* === Karya Section === */
+.karya-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 50px;
+}
+.karya-section h2 {
+  font-size: 1.6rem;
+  color: #1a3dee;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.karya-section .icon {
+  font-size: 1.5rem;
+}
+
+/* === Kotak Pembungkus (Box) === */
+.karya-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-top: 15px;
+}
+
+/* === Container Gambar === */
+.karya-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* === Kartu Gambar === */
+.karya-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.karya-card:hover {
+  transform: translateY(-5px);
+}
+.karya-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.karya-card p {
+  padding: 12px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #333;
+}
+
+/* === Video Responsif === */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+}
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: #777;
+  background-color: #f1f3fa;
+  font-size: 0.9rem;
+}
+
+/* === Responsif untuk HP === */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .karya-card img {
+    height: 150px;
+  }
+  .video-container {
+    max-width: 100%;
+  }
+}
+/* Global */
+:root{
+  --blue:#234fb7;     /* header & active pill */
+  --soft:#f3f6f9;     /* page bg */
+  --muted:#8b8f95;    /* subtitle */
+  --card-bg:#fff;
+  --gold:#f4b400;     /* left stripe */
+  --time-bg:#f1f4f8;  /* waktu column bg */
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background:var(--soft);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header */
+.site-header{
+  text-align:center;
+  padding:28px 20px 8px;
+}
+.logo{
+  width:64px;
+  height:auto;
+  display:block;
+  margin:0 auto 10px;
+}
+.site-header h1{
+  margin:0;
+  font-size:36px;
+  color:var(--blue);
+  letter-spacing:0.2px;
+  font-weight:700;
+}
+.subtitle{
+  margin:8px 0 18px;
+  color:var(--muted);
+  font-size:15px;
+}
+.divider{
+  border:0;
+  border-top:1px solid #e6e9ee;
+  margin:10px auto 18px;
+  width:92%;
+}
+
+/* Nav pills */
+.nav-pills{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:4px auto 24px;
+}
+.pill{
+  display:inline-block;
+  text-decoration:none;
+  color:#333;
+  background:#fff;
+  border-radius:24px;
+  padding:10px 18px;
+  border:1px solid #e6e9ee;
+  box-shadow:0 2px 6px rgba(20,30,50,0.04);
+  font-weight:600;
+  transition:all .18s ease;
+}
+.pill:hover{transform:translateY(-2px)}
+.pill.active{
+  background:var(--blue);
+  color:#fff;
+  border-color:var(--blue);
+}
+
+/* Main card */
+main{padding:0 20px 60px}
+.card{
+  max-width:920px;
+  margin:28px auto;
+  background:var(--card-bg);
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 6px 18px rgba(12,20,40,0.06);
+  position:relative;
+  overflow:hidden;;
+}
+
+/* gold stripe on left - visually like example */
+.card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:14px;
+  bottom:14px;
+  width:8px;
+  background:var(--gold);
+  border-radius:6px;
+  transform:translateX(-6px);
+}
+
+/* Card title (blue) */
+.card-title{
+  margin:0 0 12px 12px;
+  color:var(--blue);
+  font-size:20px;
+  font-weight:700;
+}
+
+/* Table container */
+.table-wrap{
+  overflow:auto;
+  padding:6px 6px 2px 6px;
+}
+
+/* Table */
+.schedule{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px; /* keep layout like sample */
+  font-size:15px;
+}
+
+/* header row 1 (Waktu/Hari/Kegiatan) */
+.schedule thead tr.head-row-1 th{
+  background:var(--blue);
+  color:#ffffff;
+  padding:18px 14px;
+  text-align:left;
+  font-weight:700;
+  border:0;
+  
+}
+
+/* header row 2 (Mulai/Selesai) */
+.schedule thead tr.head-row-2 th{
+  background:var(--blue);
+  color:#fff;
+  padding:12px 14px;
+  font-weight:700;
+  border:0;
+  text-align:left;
+}
+
+/* body cells */
+.schedule tbody td{
+  padding:14px;
+  border-bottom:1px solid #eef0f3;
+  vertical-align:middle;
+}
+
+/* time column style */
+.schedule tbody td.time{
+  background:var(--time-bg);
+  color:#223;
+  width:85px;
+  text-align:left;
+}
+
+/* give slight separation for first column cells */
+.schedule tbody tr td:first-child{border-left:1px solid #eef0f3}
+
+/* day column narrower */
+.schedule tbody td:nth-child(3){
+  width:110px;
+  text-align:left;
+}
+
+/* make activities column the remaining space */
+.schedule tbody td:nth-child(4){
+  text-align:left;
+}
+
+/* small responsive tweak */
+@media (max-width:900px){
+  .card{padding:12px}
+  .site-header h1{font-size:28px}
+  .schedule{font-size:14px; min-width:650px}
+  .logo{width:56px}
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin: 30px 0 20px;
+}
+.header h1 {
+  font-size: 28px;
+  color: #1a73e8;
+}
+.header p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.navbar button {
+  border: none;
+  background: #f2f2f2;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.navbar button:hover {
+  background: #ddd;
+}
+.navbar .active {
+  background: #1a73e8;
+  color: #fff;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px 10px;
+}
+form {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 200%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+form h2 {
+  color: #1a73e8;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+form p {
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Inputs */
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-size: 14px;
+  color: #333;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Options Horizontal */
+.options {
+  display:inline-flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.options label {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items:baseline;
+  gap: 5px;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.form-actions button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.form-actions .submit {
+  background: #1a73e8;
+  color: #fff;
+}
+.form-actions button:hover {
+  opacity: 0.9;
+}
