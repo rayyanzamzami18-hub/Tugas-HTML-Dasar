@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.container .text-kanan{
+    text-align: justify;
+}
+.text-kiri{
+    text-align: justify;
+}
+.text-kanan{
+    text-align: justify;
+}
+.text-tengah{
+    text-align: justify;
+}
+.text-rata{
+    text-align: justify;
+}
+.Titit Rido menyala{
+    text-decoration: dashed;
+    color: blueviolet;
+    text-align: justify;
+}

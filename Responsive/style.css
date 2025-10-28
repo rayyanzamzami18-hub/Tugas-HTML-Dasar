@@ -1,0 +1,33 @@
+header {
+    background: linear-gradient(180deg, #abc3db, #1e3a8a);
+    text-align: center;
+    box-shadow: 10pc color(srgb lightblue);
+}
+
+nav {
+    background: linear-gradient(180deg, #3e5a7a, #adc6db);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    gap : 13px;
+}
+
+nav li a {
+    color: aquamarine;
+    background: #3e5a7a;
+}
+
+/* ukuran 1024px => desktop++ */
+@media screen and (min-width: 1024px) {
+  /* masukkan tag / target selector */
+}
+
+/* ukuran 768-1023px => tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* masukkan tag / target selector */
+}
+

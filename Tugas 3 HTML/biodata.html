@@ -7,87 +7,83 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <body>
-    <div class="logo">
-        <img src="image/logo.webp" alt="Logo HSI Boarding School">
-    </div>
-  <div class="container">
-    <h1>Biodata Santri Ganteng SMA IT HSI IDN</h1>
-    <h2>Kelas B - Asrama Ibnul Qoyyim</h2>
-    <hr>
-    <nav class="navbar">
-    <a href="index.html">Beranda</a>
-    <a href="biodata.html" class="active">Biodata</a>
-    <a href="jadwal.html">Jadwal</a>
-    <a href="galeri.html">Galeri</a>
-    <a href="feedback.html">Feedback</a>
-  </nav>
+  <header class="site-header">
+      <img src="image/logo.webp" alt="Logo Sekolah" class="logo">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-text">
+          <h1>Biodata Santri</h1>
+          <p class="subtitle">Kelas 10 B — Asrama Ibnu Qayyim</p>
+        </div>
+      </div>
 
-    <h2>Biodata Singkat</h2>
-    <div class="profile card">
-      <img src="image/WhatsApp Image 2025-09-16 at 20.54.10.jpeg" alt="Foto Profil RoyZ">
-      <p>Foto profil RoyZ</p>
+      <button id="btnToggle" class="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+        <hr>
+      <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-item">Beranda</a>
+        <a href="biodata.html" class="nav-item active">Biodata</a>
+        <a href="jadwal.html" class="nav-item">Jadwal</a>
+        <a href="galeri.html" class="nav-item">Galeri</a>
+        <a href="feedback.html" class="nav-item">Feedback</a>
+      </nav><hr>
     </div>
+  </header>
 
-    <p class="intro card">
-      Assalamu'alaikum, saya adalah santri di Ma'had HSI Boarding School Purworejo.<br>
+  <main class="container">
+    <!-- Biodata Singkat -->
+    <section class="card">
+      <h3 class="section-title orange">Biodata Singkat</h3>
+      <div class="minat">
+        <img src="image/WhatsApp Image 2025-09-16 at 20.54.10.jpeg" alt="Foto Santri" class="profile-photo">
+        <p>
+          Assalamu'alaikum, saya adalah santri di Ma'had HSI Boarding School Purworejo.<br>
       Di sini selain belajar bahasa arab, saya juga belajar ilmu teknologi atau IT atau yang biasa disebut "coding",
       dan ini adalah salah satu projek saya dalam belajar membuat website sederhana dengan HTML dan CSS dasar sebagai web developer pemula dengan sedikit JavaScript.<br>
       Saya berharap ini menjadi permulaan saya untuk menjadi developer muslim yang bermanfaat bagi ummat.
-    </p>
+        </p>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3><b>Nama:</b> Rayyan Zamzami Kahfi</h3>
-      <h3><b>Umur:</b> 15 tahun</h3>
-      <h3><b>TTL:</b> Jakarta-19-07-2010</h3>
-      <h3><b>Sekolah:</b> SMAIT HSI BS</h3>
-      <h3><b>Kelas:</b> 10 (1 SMA)</h3>
-    </div>
-
-    <div class="card">
-      <h3 style="  color: #004d00; /* hijau tua */
-  font-size: 24px;
-  border-left: 5px solid #e4990b; /* garis krem di samping kiri */
-  padding-left: 10px; /* jarak teks dari garis */
-  margin: 20px 0;">Hobi</h3>
+    <!-- Hobi -->
+    <section class="card">
+      <h3 class="section-title blue">Hobi</h3>
       <ul>
+        <li>Ngoding</li>
         <li>Membaca</li>
         <li>Workout</li>
-        <li>Tenis meja</li>
-        <li>Main game</li>
-        <li>Ngoding</li>
+        <li>Nonton Anime</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="card">
-      <h3 style="  color: #004d00; /* hijau tua */
-  font-size: 24px;
-  border-left: 5px solid #d69113; /* garis krem di samping kiri */
-  padding-left: 10px; /* jarak teks dari garis */
-  margin: 20px 0;">Cita-cita</h3>
-      <ul>
-        <li>Ilmuwan</li>
+    <!-- Cita-cita -->
+    <section class="card">
+      <h3 class="section-title orange">Cita-cita</h3>
+      <ol>
+        <li>Programmer</li>
+        <li>Pro Gamer</li>
         <li>Pengusaha sukses</li>
-        <li>Developer Front End</li>
-      </ul>
-    </div>
+        <li>Bahagiain orang tua</li>
+      </ol>
+    </section>
 
-    <div class="card">
-      <h3 style="  color: #004d00; /* hijau tua */
-  font-size: 24px;
-  border-left: 5px solid #e69c12; /* garis krem di samping kiri */
-  padding-left: 10px; /* jarak teks dari garis */
-  margin: 20px 0;">Contact Me:</h3>
+    <!-- Kontak -->
+    <section class="card">
+      <h3 class="section-title blue">Kontak</h3>
+      <p>Whatsapp: <a href="https://wa.me/6283848199919" target="_blank">Chat via WhatsApp</a></p>
+      <p>Telegram: <a href="https://t.me/@royzamzamik" target="_blank">Chat via Telegram</a></p>
+      <p>Email: <a href="email:royyanzamzami@gmail.com">royyanzamzami18@gmail.com</a></p>
 
-<p>
-  WhatsApp: <a href="https://wa.me/6283848199919" target="_blank">Chat via WhatsApp</a><br>
-  Instagram: <a href="https://instagram.com/royzamzamik" target="_blank">@royzamzamik</a>
-</p>
+    </section>
+  </main>
 
-    </div>
 
-    <h2 class="thanks">--- Terima kasih sudah berkunjung! ---</h2>
- 
+  <footer class="site-footer">
+    &copy; 2025 | HSI Boarding School Purworejo — Kelas X B
+  </footer>
+
+  
 
 </body>
 </html>
