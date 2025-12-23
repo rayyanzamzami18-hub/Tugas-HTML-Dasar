@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koenigsegg | HYPERCAR</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="text-xl font-semibold tracking-widest">Koenigsegg</div>
+
+    <nav class="hidden md:flex gap-10 text-sm uppercase tracking-wide">
+      <a href="#" class="hover:text-gray-300">Models</a>
+      <a href="#" class="hover:text-gray-300">Technology</a>
+      <a href="#" class="hover:text-gray-300">About</a>
+      <a href="#" class="hover:text-gray-300">History</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden">☰</button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-white/10">
+    <div class="flex flex-col px-6 py-4 gap-4 uppercase text-sm">
+      <a href="#">Models</a>
+      <a href="#">Technology</a>
+      <a href="#">About</a>
+      <a href="#">History</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="h-screen relative flex items-end" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBLkGVK9GM2au3MYJKSFfwO0RLJL3-VEUhTQ&s'); background-size:cover; background-position:center;">
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 pb-24" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-light tracking-wider">Speed Without Limits</h1>
+    <p class="mt-6 text-gray-300 max-w-xl">A new era of extreme performance and in-house innovation.</p>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section class="py-32 bg-black">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex gap-8 text-sm uppercase tracking-wide mb-16" data-aos="fade-right">
+      <span class="text-white">Aquila</span>
+      <span class="text-gray-500">Vortex</span>
+      <span class="text-gray-500">Nebula</span>
+      <span class="text-gray-500">Orion</span>
+    </div>
+
+    <div class="relative" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80" class="rounded-xl" />
+      <h2 class="absolute bottom-10 left-10 text-3xl md:text-5xl font-light">WORLD'S FIRST MEGA GT</h2>
+    </div>
+  </div>
+</section>
+
+<!-- INNOVATION -->
+<section class="py-32 bg-black">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+    <div data-aos="fade-right">
+      <p class="uppercase text-xs tracking-widest text-gray-400">Technological Achievements</p>
+      <h2 class="text-4xl mt-6 font-light">IN-HOUSE<br/>INNOVATIONS</h2>
+      <p class="mt-6 text-gray-400 leading-relaxed">Every component is designed, engineered and built internally to achieve unmatched performance.</p>
+    </div>
+
+    <div data-aos="fade-left">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQphS-aJc7EutrkpGCxO9lXJcI2JPD4ZRzu6Q&s" class="rounded-x5" />
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="py-32 bg-white text-black">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+    <img src="https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?auto=format&fit=crop&w=1200&q=80" data-aos="fade-right" />
+
+    <div data-aos="fade-left">
+      <p class="uppercase text-xs tracking-widest">About Us</p>
+      <h2 class="text-4xl mt-6 font-light">WHY WE<br/>DO WHAT WE DO</h2>
+      <p class="mt-6 text-gray-600">Performance without shortcuts. Engineering driven by passion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="py-32 bg-white text-black">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+    <div data-aos="fade-right">
+      <p class="uppercase text-xs tracking-widest">Our History</p>
+      <h2 class="text-4xl mt-6 font-light">DELIVERING ON A<br/>SINGULAR VISION</h2>
+      <p class="mt-6 text-gray-600">Founded by obsession. Driven by innovation.</p>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&w=1200&q=80" data-aos="fade-left" />
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-gray-400 py-20">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+    <div>
+      <h3 class="text-white mb-4">HYPERION</h3>
+      <p class="text-sm">Extreme performance vehicles.</p>
+    </div>
+    <div class="text-sm">
+      <p class="mb-2">Models</p>
+      <p class="mb-2">Technology</p>
+      <p>History</p>
+    </div>
+    <div class="text-sm">
+      <p class="mb-2">Careers</p>
+      <p class="mb-2">Press</p>
+      <p>Contact</p>
+    </div>
+    <div class="text-sm">© 2025 Hyperion Automotive</div>
+  </div>
+</footer>
+
+<script>
+  AOS.init({ once: true, duration: 1000 });
+
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>

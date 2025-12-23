@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentour - Travel Mewah & Elegan</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Inter (default for Tailwind) -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom Green Theme */
+        .zen-primary { background-color: #065F46; /* dark emerald */ }
+        .zen-accent { color: #F59E0B; /* amber/gold for luxury accent */ }
+        .zen-text { color: #E5E7EB; /* off-white for dark mode text */ }
+        
+        /* Gaya mewah ala Koenigsegg: bersih, kontras tinggi, fokus pada tipografi */
+        .zen-card {
+            background-color: var(--card-bg, #FFFFFF);
+            border-left: 4px solid #065F46;
+            transition: all 0.3s ease;
+        }
+        .dark .zen-card {
+            --card-bg: #1F2937; /* Dark grey for card background */
+            border-left-color: #34D399; /* Lighter emerald in dark mode */
+        }
+        
+        /* Video Background Styling */
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        /* Overlay to ensure text readability */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 95, 70, 0.6); /* Deep emerald overlay */
+        }
+        .dark .video-overlay {
+            background: rgba(0, 0, 0, 0.75); /* Darker overlay in dark mode */
+        }
+
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-500">
+
+    <!-- Navbar/Header (Rata Kiri, Tetap di Atas) -->
+    <header class="fixed top-0 left-0 right-0 z-50 shadow-lg bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm transition-colors duration-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <!-- Logo/Nama Website (Zentour) -->
+            <div class="flex items-center">
+                <a href="#beranda" class="text-3xl font-extrabold text-emerald-800 dark:text-emerald-400 tracking-wider transition-colors duration-500">
+                    Zentour<span class="zen-accent text-3xl">.</span>
+                </a>
+            </div>
+
+            <!-- Nav Links (Rata Kiri) -->
+            <div class="flex space-x-6">
+                <a href="#beranda" data-page="beranda" class="nav-link text-gray-700 dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-300 font-semibold transition-colors duration-300 active-link">Beranda</a>
+                <a href="#pemesanan" data-page="pemesanan" class="nav-link text-gray-700 dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-300 font-semibold transition-colors duration-300">Pemesanan & Destinasi</a>
+                <a href="#galeri" data-page="galeri" class="nav-link text-gray-700 dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-300 font-semibold transition-colors duration-300">Galeri & Testimoni</a>
+                <a href="#kontak" data-page="kontak" class="nav-link text-gray-700 dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-300 font-semibold transition-colors duration-300">Kontak & Berita</a>
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-amber-400 hover:scale-105 transition-transform duration-300">
+                <!-- Icon will be set by JS -->
+                <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content Container (Page Switching Happens Here) -->
+    <main class="pt-16 min-h-screen">
+        
+        <!-- ============================================== -->
+        <!-- PAGE 1: BERANDA (HOME) -->
+        <!-- ============================================== -->
+        <section id="beranda" data-page-content class="page-content active-page">
+            <!-- Hero Section dengan Video Background -->
+            <div class="relative h-screen flex items-center justify-center overflow-hidden">
+                <video id="hero-video" autoplay loop muted poster="https://placehold.co/1920x1080/065F46/FFF?text=Zentour+Video+Placeholder">
+                    <!-- Gunakan URL video background travel berlisensi bebas/umum -->
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-a-wave-in-the-sea-2144-large.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <div class="video-overlay"></div>
+                
+                <div class="relative z-10 text-center px-4" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="text-6xl md:text-8xl font-black zen-text uppercase tracking-widest leading-tight mb-4 shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        ZENTOUR
+                    </h1>
+                    <h2 class="text-3xl md:text-5xl font-light zen-accent tracking-wide mb-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                        Elegansi dalam Setiap Perjalanan
+                    </h2>
+                    <a href="#pemesanan" class="inline-block px-8 py-3 zen-primary text-white font-bold uppercase rounded-lg shadow-xl hover:bg-emerald-700 transform hover:scale-105 transition-all duration-300 border border-transparent hover:border-amber-400" onclick="showPage('pemesanan')">
+                        Eksplorasi Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- Filosofi Zentour (Gaya Koenigsegg Minimalis) -->
+            <div class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="zen-card p-6 rounded-lg shadow-xl" data-aos="fade-right" data-aos-delay="100">
+                        <h3 class="text-3xl font-bold mb-3 text-emerald-800 dark:text-emerald-400">Presisi</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Kami merancang setiap detail perjalanan dengan ketelitian tertinggi, memastikan pengalaman yang tak tertandingi.</p>
+                    </div>
+                    <div class="zen-card p-6 rounded-lg shadow-xl" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="text-3xl font-bold mb-3 text-emerald-800 dark:text-emerald-400">Eksklusivitas</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Akses ke destinasi dan akomodasi paling privat dan mewah di seluruh dunia, hanya untuk Anda.</p>
+                    </div>
+                    <div class="zen-card p-6 rounded-lg shadow-xl" data-aos="fade-right" data-aos-delay="300">
+                        <h3 class="text-3xl font-bold mb-3 text-emerald-800 dark:text-emerald-400">Keberlanjutan</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Perjalanan mewah yang bertanggung jawab, menghargai budaya dan lingkungan lokal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PAGE 2: PEMESANAN TIKET DAN DESTINASI TERBAIK -->
+        <!-- ============================================== -->
+        <section id="pemesanan" data-page-content class="page-content hidden py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-emerald-800 dark:text-emerald-400" data-aos="fade-down">
+                    Destinasi Pilihan Zentour<span class="zen-accent">.</span>
+                </h2>
+
+                <!-- Destinasi Terbaik Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Destinasi 1: Pegunungan Mewah -->
+                    <div class="zen-card overflow-hidden rounded-xl shadow-2xl hover:shadow-emerald-500/50 transition-shadow duration-300" data-aos="zoom-in-up" data-aos-delay="100">
+                        <img src="https://placehold.co/600x400/0E5F46/FFF?text=Pegunungan+Swiss" alt="Pegunungan Alpen Swiss" class="w-full h-48 object-cover object-center transition-transform duration-500 hover:scale-105">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-emerald-700 dark:text-emerald-300">Resort Pegunungan Alpen</h3>
+                            <p class="text-sm zen-accent font-semibold mb-4">Eksklusivitas Musim Dingin</p>
+                            <p class="text-gray-600 dark:text-gray-400">Pondok-pondok privat dengan pemandangan puncak salju abadi. Layanan chef pribadi dan akses ski prioritas.</p>
+                            <button class="mt-4 px-6 py-2 zen-accent border border-emerald-800 dark:border-amber-400 text-emerald-800 dark:text-amber-400 font-semibold rounded hover:bg-emerald-800 hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Destinasi 2: Pulau Tropis Privat -->
+                    <div class="zen-card overflow-hidden rounded-xl shadow-2xl hover:shadow-emerald-500/50 transition-shadow duration-300" data-aos="zoom-in-up" data-aos-delay="200">
+                        <img src="https://placehold.co/600x400/22C55E/FFF?text=Pulau+Maladewa" alt="Pulau Tropis Maladewa" class="w-full h-48 object-cover object-center transition-transform duration-500 hover:scale-105">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-emerald-700 dark:text-emerald-300">Atol Maladewa Tanpa Nama</h3>
+                            <p class="text-sm zen-accent font-semibold mb-4">Ketenangan Laut Biru</p>
+                            <p class="text-gray-600 dark:text-gray-400">Liburan di villa atas air yang terisolasi. Selancar angin dan menyelam ditemani instruktur profesional.</p>
+                            <button class="mt-4 px-6 py-2 zen-accent border border-emerald-800 dark:border-amber-400 text-emerald-800 dark:text-amber-400 font-semibold rounded hover:bg-emerald-800 hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Destinasi 3: Petualangan Gurun -->
+                    <div class="zen-card overflow-hidden rounded-xl shadow-2xl hover:shadow-emerald-500/50 transition-shadow duration-300" data-aos="zoom-in-up" data-aos-delay="300">
+                        <img src="https://placehold.co/600x400/10B981/FFF?text=Gurun+Arabia" alt="Gurun Pasir Dubai" class="w-full h-48 object-cover object-center transition-transform duration-500 hover:scale-105">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-emerald-700 dark:text-emerald-300">Kemah Mewah Gurun Arabia</h3>
+                            <p class="text-sm zen-accent font-semibold mb-4">Pengalaman Bintang Lima</p>
+                            <p class="text-gray-600 dark:text-gray-400">Glamping mewah di bawah langit gurun yang bersih. Balon udara panas pribadi saat fajar.</p>
+                            <button class="mt-4 px-6 py-2 zen-accent border border-emerald-800 dark:border-amber-400 text-emerald-800 dark:text-amber-400 font-semibold rounded hover:bg-emerald-800 hover:text-white dark:hover:bg-amber-400 dark:hover:text-gray-900 transition-all">
+                                Lihat Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Pemesanan Tiket (Minimalis & Elegan) -->
+                <div class="mt-20 p-10 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border-t-8 border-emerald-600 dark:border-amber-400" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold mb-8 text-emerald-800 dark:text-amber-400">Formulir Pemesanan Eksklusif</h3>
+                    <form onsubmit="alert('Pemesanan telah diterima. Staf kami akan segera menghubungi Anda untuk detail eksklusif.'); return false;">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="destination" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Destinasi Pilihan</label>
+                                <select id="destination" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 dark:text-gray-200 transition-colors duration-300">
+                                    <option>Alpen Swiss</option>
+                                    <option>Atol Maladewa</option>
+                                    <option>Gurun Arabia</option>
+                                    <option>Permintaan Khusus</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tanggal Keberangkatan</label>
+                                <input type="date" id="date" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 dark:text-gray-200 transition-colors duration-300">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="notes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Catatan Eksklusif (Contoh: Jenis Akomodasi)</label>
+                                <textarea id="notes" rows="3" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 dark:text-gray-200 transition-colors duration-300" placeholder="Saya ingin penerbangan kelas pertama dan vila di tepi pantai."></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button type="submit" class="w-full md:w-auto px-10 py-3 zen-primary text-white font-extrabold uppercase rounded-lg shadow-lg hover:bg-emerald-700 transform hover:scale-[1.02] transition-all duration-300 border border-transparent hover:border-amber-400">
+                                Pesan Perjalanan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PAGE 3: GALERI TRAVEL DAN TESTIMONI -->
+        <!-- ============================================== -->
+        <section id="galeri" data-page-content class="page-content hidden py-20 bg-white dark:bg-gray-900 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-emerald-800 dark:text-emerald-400" data-aos="fade-down">
+                    Galeri Pengalaman<span class="zen-accent">.</span>
+                </h2>
+
+                <!-- Galeri Foto (3 Kolom) -->
+                <div class="grid md:grid-cols-3 gap-6 mb-20">
+                    <div class="group relative overflow-hidden rounded-xl shadow-xl" data-aos="flip-left" data-aos-delay="100">
+                        <img src="https://placehold.co/800x600/065F46/FFF?text=Galeri+1" alt="Galeri Foto 1" class="w-full h-full object-cover aspect-[4/3] group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold zen-accent border-b-2 border-amber-400 p-1">Penerbangan Pribadi</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-xl" data-aos="flip-left" data-aos-delay="200">
+                        <img src="https://placehold.co/800x600/10B981/FFF?text=Galeri+2" alt="Galeri Foto 2" class="w-full h-full object-cover aspect-[4/3] group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold zen-accent border-b-2 border-amber-400 p-1">Santap Malam Bintang Lima</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-xl" data-aos="flip-left" data-aos-delay="300">
+                        <img src="https://placehold.co/800x600/34D399/FFF?text=Galeri+3" alt="Galeri Foto 3" class="w-full h-full object-cover aspect-[4/3] group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold zen-accent border-b-2 border-amber-400 p-1">Pemandangan Eksotis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni Traveller -->
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-emerald-800 dark:text-emerald-400" data-aos="fade-down">
+                    Kata Para Traveller<span class="zen-accent">.</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Testimoni 1 -->
+                    <div class="zen-card p-8 rounded-xl shadow-2xl bg-gray-50 dark:bg-gray-800" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-3xl zen-accent mb-4">"</div>
+                        <p class="text-lg italic text-gray-700 dark:text-gray-300">"Zentour benar-benar mendefinisikan ulang makna perjalanan mewah. Setiap aspek diurus dengan sempurna, dari penerbangan hingga detail terkecil di villa. Sangat direkomendasikan!"</p>
+                        <div class="mt-6 flex items-center">
+                            <img src="https://placehold.co/50x50/374151/FFF?text=A.D" alt="Avatar Traveller 1" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-400">
+                            <div class="ml-4">
+                                <p class="font-bold text-emerald-800 dark:text-emerald-400">Alexander Da Costa</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">CEO, Tech Innovations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 2 -->
+                    <div class="zen-card p-8 rounded-xl shadow-2xl bg-gray-50 dark:bg-gray-800" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-3xl zen-accent mb-4">"</div>
+                        <p class="text-lg italic text-gray-700 dark:text-gray-300">"Pengalaman di Gurun Arabia luar biasa! Zentour memberikan kemah yang paling elegan dan pemandu yang sangat berpengetahuan. Ini lebih dari sekadar liburan, ini adalah petualangan eksklusif."</p>
+                        <div class="mt-6 flex items-center">
+                            <img src="https://placehold.co/50x50/374151/FFF?text=M.S" alt="Avatar Traveller 2" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-400">
+                            <div class="ml-4">
+                                <p class="font-bold text-emerald-800 dark:text-emerald-400">Maya Suteja</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Desainer Fashion Global</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PAGE 4: KONTAK, ALAMAT, DAN BERITA -->
+        <!-- ============================================== -->
+        <section id="kontak" data-page-content class="page-content hidden py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-emerald-800 dark:text-emerald-400" data-aos="fade-down">
+                    Hubungi Kami<span class="zen-accent">.</span>
+                </h2>
+
+                <div class="grid lg:grid-cols-3 gap-10">
+                    <!-- Informasi Kontak dan Alamat -->
+                    <div class="lg:col-span-1 zen-card p-8 rounded-xl shadow-2xl" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-6 text-emerald-800 dark:text-amber-400">Kantor Pusat Global</h3>
+                        
+                        <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                            <p><strong>Alamat:</strong></p>
+                            <p class="pl-4">The Zenith Tower, Lantai 42<br>Jalan Sudirman Kav. 1, Jakarta Pusat, 10220</p>
+                            
+                            <p><strong>Telepon Eksklusif:</strong></p>
+                            <p class="pl-4 zen-accent text-xl font-mono">+62 21 555-ZENTOUR (24 Jam)</p>
+
+                            <p><strong>Email Dukungan:</strong></p>
+                            <p class="pl-4">concierge@zentour.id</p>
+                        </div>
+                    </div>
+
+                    <!-- Integrasi Google Maps -->
+                    <div class="lg:col-span-2 overflow-hidden rounded-xl shadow-2xl" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold p-4 text-center bg-emerald-800 text-white dark:bg-gray-900 dark:text-amber-400">Lokasi Kami</h3>
+                        <!-- Placeholder Iframe untuk Google Maps (Ganti src dengan embed map Anda) -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.304040777085!2d106.81432411476906!3d-6.222378395503837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3fe2688755b%3A0x6798e1694f4c9258!2sPacific%20Place%20Jakarta!5e0!3m2!1sen!2sid!4v1634870400000!5m2!1sen!2sid" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="dark:invert dark:grayscale"
+                        ></iframe>
+                    </div>
+                </div>
+                
+                <!-- Berita Perusahaan -->
+                <div class="mt-20">
+                    <h3 class="text-4xl font-extrabold text-center mb-10 text-emerald-800 dark:text-emerald-400" data-aos="fade-up">
+                        Berita Zentour Terbaru<span class="zen-accent">.</span>
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="zen-card p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900" data-aos="fade-up" data-aos-delay="100">
+                            <p class="text-sm zen-accent mb-2">15 Nov 2025</p>
+                            <h4 class="text-xl font-bold text-emerald-700 dark:text-emerald-300 mb-3">Zentour Raih Penghargaan "Luxury Travel Operator of the Year"</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Pengakuan atas komitmen kami terhadap layanan yang tak tertandingi dan portofolio perjalanan eksklusif.</p>
+                        </div>
+                        <div class="zen-card p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900" data-aos="fade-up" data-aos-delay="200">
+                            <p class="text-sm zen-accent mb-2">01 Nov 2025</p>
+                            <h4 class="text-xl font-bold text-emerald-700 dark:text-emerald-300 mb-3">Rilis Tur Ekspedisi Antartika Privat 2026</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Jelajahi benua es dengan kapal pesiar mewah berkapasitas terbatas. Pesan segera untuk slot awal.</p>
+                        </div>
+                        <div class="zen-card p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900" data-aos="fade-up" data-aos-delay="300">
+                            <p class="text-sm zen-accent mb-2">18 Okt 2025</p>
+                            <h4 class="text-xl font-bold text-emerald-700 dark:text-emerald-300 mb-3">Kemitraan Eksklusif dengan Maskapai Jet Pribadi Global</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Memperluas jangkauan layanan charter jet pribadi untuk fleksibilitas perjalanan Anda.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="zen-primary text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-lg font-bold tracking-wider mb-4 md:mb-0">
+                Zentour <span class="zen-accent">|</span> Mewah, Presisi, Tak Terlupakan
+            </p>
+            <p class="text-sm text-gray-300">
+                © 2025 Zentour Global. Hak Cipta Dilindungi.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Load AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Inisialisasi AOS (Animate On Scroll)
+        AOS.init({
+            once: true, // Animasi hanya terjadi sekali saat scrolling ke bawah
+            duration: 800, // Durasi animasi
+        });
+
+        // 1. Logika Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
+
+        // Fungsi untuk menerapkan mode (light/dark)
+        function applyDarkMode(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('color-theme', 'light');
+            }
+        }
+
+        // Cek preferensi dari localStorage atau sistem
+        const storedTheme = localStorage.getItem('color-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Tentukan mode awal
+        let initialDark = false;
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+            initialDark = true;
+        }
+
+        applyDarkMode(initialDark);
+
+        // Tambahkan event listener untuk toggle
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = html.classList.contains('dark');
+            applyDarkMode(!isDark);
+        });
+
+        // 2. Logika Navigasi SPA (Single Page Application)
+        const pageContents = document.querySelectorAll('[data-page-content]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            pageContents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('active-page');
+            });
+
+            // Tampilkan halaman yang diminta
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+                activePage.classList.add('active-page');
+                // Menginisialisasi ulang AOS setiap kali halaman berganti
+                // Ini penting agar animasi muncul saat halaman baru di-load
+                AOS.refresh(); 
+            }
+
+            // Atur link aktif di navbar
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active-link', 'zen-accent', 'border-b-2', 'border-emerald-600', 'dark:border-amber-400');
+                    link.classList.remove('text-gray-700', 'dark:text-gray-200');
+                } else {
+                    link.classList.remove('active-link', 'zen-accent', 'border-b-2', 'border-emerald-600', 'dark:border-amber-400');
+                    link.classList.add('text-gray-700', 'dark:text-gray-200');
+                }
+            });
+        }
+        
+        // Handle navigasi saat hash berubah (saat link diklik atau tombol back/forward)
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1) || 'beranda';
+            showPage(hash);
+        }
+
+        // Inisialisasi awal saat load
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+
+        // 3. Auto-play Video pada Page Beranda (Pastikan video ada di Page 1)
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo) {
+             // Pastikan video autoplay dan muted agar bisa dimainkan di sebagian besar browser
+             heroVideo.play().catch(error => {
+                console.warn("Autoplay video gagal, mungkin diblokir: ", error);
+             });
+        }
+        
+    </script>
+</body>
+</html>

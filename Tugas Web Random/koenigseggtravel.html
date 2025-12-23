@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Travel - Journey Beyond Limits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1950&q=80'); }
+        .hover-lift { transition: transform 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-10px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <section class="hero-bg bg-cover bg-center h-screen flex items-center justify-center text-white">
+        <div class="text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-down">Journey Beyond Limits</h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up">Rasakan Dunia yang Belum Pernah Anda Rasakan Sebelumnya</p>
+            <button class="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition animate-bounce">
+                Explore Destinations
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16">Featured Destinations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Destination 1 -->
+            <div class="overflow-hidden rounded-lg shadow-lg hover-lift">
+                <img src="https://media.zcreators.id/crop/0x0:0x0/750x500/photo/indizone/2019/11/18/gmsN0m/t_5dd1f962618f3.jpg" alt="Bali" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-2xl font-semibold mb-2">Victoria Falls, between Zambia and Zimbabwe</h3>
+                    <p class="text-gray-600 mb-4">The world's largest falling water sheet and natural wonder.</p>
+                    <button class="text-blue-600 font-semibold hover:underline">Learn More</button>
+                </div>
+            </div>
+            <!-- Destination 2 -->
+            <div class="overflow-hidden rounded-lg shadow-lg hover-lift">
+                <img src="https://media.istockphoto.com/id/1665716741/id/foto/pemandangan-udara-paris-prancis-menghadap-menara-eiffel-yang-terkenal-matahari-terbit-di-latar.jpg?s=612x612&w=0&k=20&c=6DgJF60TVQ00uN-jOPawEh-59A0KPTgYtF3I1__1_A8=" alt="Paris" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-2xl font-semibold mb-2">Paris, France</h3>
+                    <p class="text-gray-600 mb-4">City of lights, love, and timeless elegance.</p>
+                    <button class="text-blue-600 font-semibold hover:underline">Learn More</button>
+                </div>
+            </div>
+            <!-- Destination 3 -->
+            <div class="overflow-hidden rounded-lg shadow-lg hover-lift">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu-G-sU5YwcKInqzCTNLT-5QQXh4gOTMeqXw&s" alt="Dubai" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-2xl font-semibold mb-2">Veligandu, Maldives</h3>
+                    <p class="text-gray-600 mb-4">A tropical paradise with pristine white-sand beaches and crystal-clear turquoise waters.</p>
+                    <button class="text-blue-600 font-semibold hover:underline">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Travel With Us -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Kenapa memilih Travel kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <i class="fas fa-plane text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Private Jet</h3>
+                    <p class="text-gray-600">Fly in luxury with our private jet services.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <i class="fas fa-hotel text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">5-Star Hotels</h3>
+                    <p class="text-gray-600">Stay at the world's most luxurious hotels.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <i class="fas fa-concierge-bell text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">VIP Service</h3>
+                    <p class="text-gray-600">24/7 concierge service for your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-4 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16">What Our Clients Say</h2>
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <p class="text-lg italic mb-4">"This was the trip of a lifetime! Every detail was perfect."</p>
+            <p class="font-semibold">- Sarah Johnson</p>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16">Travel Gallery</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80" alt="Gallery 1" class="rounded-lg shadow-lg hover-lift">
+            <img src="https://images.unsplash.com/photo-1543429776-2782fc40d43d?auto=format&fit=crop&w=400&q=80" alt="Gallery 2" class="rounded-lg shadow-lg hover-lift">
+            <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=400&q=80" alt="Gallery 3" class="rounded-lg shadow-lg hover-lift">
+            <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=400&q=80" alt="Gallery 4" class="rounded-lg shadow-lg hover-lift">
+        </div>
+    </section>
+
+    <!-- Contact & Booking Form -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Book Your Journey</h2>
+            <form class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <input type="text" placeholder="Full Name" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <input type="email" placeholder="Email Address" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <input type="text" placeholder="Destination" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <input type="date" class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <textarea placeholder="Special Requests" rows="4" class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 mb-6"></textarea>
+                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Book Now
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2024 Luxury Travel. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
