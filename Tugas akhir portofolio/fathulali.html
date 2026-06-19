@@ -1,43 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Reflection</title>
+<title>Portofolio Fathul 'Ali</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { darkMode: 'class' }
+</script>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
+
+<style>
+.signature-line {
+  border-bottom: 2px solid #666;
+  width: 260px;
+  margin: 60px auto 0;
+}
+</style>
+
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-200 dark:bg-gray-900 transition duration-500">
 
-<div class="max-w-4xl mx-auto py-16 px-6">
+<!-- FLOATING BUTTONS -->
+<div class="fixed top-6 right-6 flex flex-col gap-3 z-50">
 
-  <a href="tugas2.html" class="text-blue-600 hover:underline">
-    ← Back
-  </a>
+  <button onclick="toggleDarkMode()"
+    class="w-12 h-12 flex items-center justify-center
+           bg-black text-white
+           dark:bg-white dark:text-black
+           rounded-full shadow-lg
+           hover:scale-110 transition duration-300">
+    🌙
+  </button>
 
-  <h1 class="text-3xl font-bold mt-6 mb-8">
-    Portfolio Reflection
-  </h1>
+  <button onclick="history.back()"
+    class="w-12 h-12 flex items-center justify-center
+           bg-gray-800 text-white
+           dark:bg-gray-200 dark:text-black
+           rounded-full shadow-lg
+           hover:scale-110 transition duration-300">
+    ←
+  </button>
 
-  <div class="bg-white p-8 rounded-xl shadow leading-relaxed space-y-6">
+</div>
 
-    <p>
-      Di dalam tugas ini saya belajar bagaimana membuat website portfolio
-      menggunakan HTML dan CSS...
-    </p>
+<!-- CONTAINER -->
+<div class="max-w-5xl mx-auto py-16 px-6">
 
-    <p>
-      Tantangan terbesar yang saya hadapi adalah memahami struktur layout
-      dan penggunaan Tailwind CSS...
-    </p>
+  <!-- CARD -->
+  <div class="bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden">
 
-    <p>
-      Dari tugas ini saya menyadari pentingnya konsistensi desain dan
-      struktur kode yang rapi...
-    </p>
+    <!-- COVER -->
+    <div class="relative h-60">
+      <div class="absolute inset-0 bg-gray-700/60 flex items-center justify-center">
+        <h1 class="text-4xl font-bold text-white text-center">
+          PORTOFOLIO FATHUL ‘ALI
+        </h1>
+      </div>
+    </div>
 
+    <!-- CONTENT -->
+    <div class="p-12 text-gray-800 dark:text-gray-200 space-y-14 leading-relaxed text-justify">
+
+      <!-- IDENTITAS -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          IDENTITAS SANTRI
+        </h2>
+
+        <p><strong>Nama :</strong> Rayyan Zamzami Kahfi</p>
+        <p><strong>Kelas :</strong> 10 C</p>
+        <p><strong>Tanggal :</strong> 15-06-2026</p>
+        <p><strong>Nama Kitab & Pengarang :</strong> Fathul ‘Ali</p>
+      </section>
+
+      <!-- 1 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          1. RINGKASAN ISI KITAB
+        </h2>
+
+        <h3 class="font-semibold mt-4">Tema besar kitab:</h3>
+        <p class="mt-2">
+        Kitab Fathul ‘Ali membahas tentang pengenalan ilmu fiqih dan pembahasan dasar-dasar ibadah, khususnya Kitab Thaharah (bersuci) dan Kitab Shalat, sebagai fondasi penting dalam kehidupan seorang muslim.
+        </p>
+
+        <h3 class="font-semibold mt-6">Fasal-fasal / bab utama dalam kitab:</h3>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+          <li>Pengertian fiqih dan pentingnya mempelajarinya</li>
+          <li>Sumber hukum dalam Islam (Al-Qur’an, Sunnah, dll.)</li>
+          <li>Hukum-hukum syariat (wajib, sunnah, haram, makruh, mubah)</li>
+        </ul>
+
+        <h3 class="font-semibold mt-6">Inti pesan / kesimpulan penulis:</h3>
+        <p class="mt-2">
+        Penulis mengajarkan kepada para pembaca bahwa fiqih adalah ilmu yang wajib dipelajari setiap muslim agar ibadahnya sah dan sesuai tuntunan Rasulullah ﷺ. Thaharah dan shalat merupakan ibadah paling mendasar, sehingga wajib bagi kita untuk memahaminya (fardhu ‘ain). Tanpa ilmu, ibadah bisa menjadi tidak sah atau keliru.
+        </p>
+      </section>
+
+      <!-- 2 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-8 border-b pb-2">
+          2. POIN PENJELASAN PENULIS (5 poin pilihan)
+        </h2>
+
+        <div class="space-y-10">
+
+          <div>
+            <h3 class="text-xl font-bold">Poin 1: Muqoddimatul fiqhi</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Penulis menjelaskan bahwa Fiqih adalah ilmu tentang hukum-hukum syariat yang diambil dari dalil-dalil yang Shahih. Fiqih membantu seorang muslim mengetahui mana yang wajib, sunnah, haram, dan lainnya.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Firman Allah tentang kewajiban memahami agama (QS. At-Taubah: 122) yang menjelaskan pentingnyamempelajari ilmu agama.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya jadi sadar bahwa belajar fiqihitu wajib dalam kehidupan. Tanpa fiqih, saya bisa saja rajin ibadah tapi salah cara dan menjadi sesat.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold">Poin 2: Kitabut Thaharah</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Bersuci adalah syarat sah shalat. Jika seseorang shalat tanpa wudhu atau masih ada najis, maka shalatnya tidak sah. Bersuci juga mencerminkan kepribadian seorang yang muslim yang baik.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Firman Allah : وَاَنْزَلْنَا مِنَ السَّمَاءِ مَاءً طَهُوْرًاۙ</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya jadi lebih memperhatikan wudhu dan kebersihan pakaian sebelum shalat, karena ini menentukan diterima atau tidaknya ibadah saya.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold">Poin 3: Kitabush Shalah</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Penulis menjelaskan tentang Apa aitu Shalat dan juga tentang Syarat-syaratnya, dan juga tentang seluk-beluk Adzan dan syarat-syaratnya.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Waktu Shalat itu banyak, ada waktu yang diutamakan dan ada waktu yang kepepet, dan ada juga waktu yang terlarang untuk shalat di dalamnya.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya jadi lebih fokus dan tidak tergesa-gesa dalam shalat, karena sudah megetahui apa saja rukun-rukun, wajibat, dan juga pembatal-pembatal shalat. Dan terutama dalam menjaga tuma’ninah.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold">Poin 4: Shalat Berjama’ah</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Penulis menjelaskan tentang wajibnya Shalat berjama’ah bagi laki-laki, beserta apa saja yang berkaitan dengan kesempurnaan Shalat berjama’ah.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Orang yang didahulukan untuk menjadi imam dalam shalat berjamaah adalah imam masjid/pemilik rumah, kemudian orang yang paling faqih, paling Qori’, dan seterusnya.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya menjadi lebih bersemangat untuk melakukan Shalat berjama’ah karena sudah tahu akan keutamaan dan Pahalanya.</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold">Poin 5: Kitabul Hajji</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Penulis menjelaskan tentang Apa aitu Haji beserta Rukun-rukun dan juga Syarat-syaratnya, Penulis juga menambahkan sedikit penjelasan tentang umrah di akhirnya.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Pembatal-pembatal Ihram ada Sembilan, yang apabila dulakukan salah satunya maka bisa membatalkan ihram dan menjadikan haji tidak sah.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Kainginan saya untuk berangkat haji suatu hari nanti menjadi semakin besar, karena pahal dan keutamaan yang dijanjikan yang di dalamnya sangatlah besar.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          3. REFLEKSI PRIBADI
+        </h2>
+
+        <h3 class="font-semibold">Perubahan cara pandang (minimal 2 hal):</h3>
+        <ul class="list-disc pl-6 mt-3 space-y-2">
+          <li>Saya menyadari bahwa ibadah tidak cukup hanya niat menjalankan kewajiban, tetapi harus sesuai dengan aturan fiqih agar sah.</li>
+          <li>Saya menjadi lebih memahami bahwa thaharah dan shalat adalah fondasi agama, bukan sekadar rutinitas harian.</li>
+          <li>Saya juga menjadi lebih paham tentang Rukun islam yang lainnya seperti Zakat, Puasa, dan Haji.</li>
+        </ul>
+
+        <h3 class="font-semibold mt-6">Amalan konkret yang akan mulai dipraktikkan:</h3>
+        <p class="mt-2">
+        Saya akan berusaha untuk beribadah kepada Allah ﷻ sesuai dengan ajaran Nabi ﷺ sesuai yang telah saya pelajari di Pelajaran Fiqih
+        </p>
+      </section>
+
+      <!-- 4 -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          4. PERTANYAAN YANG MASIH BELUM TERJAWAB
+        </h2>
+
+        <ul class="space-y-4">
+          <li>1. Bagaimana cara terbaik menjaga kekhusyukan dalam shalat di tengah banyaknya gangguan pikiran di zaman sekarang?</li>
+          <li>2. Bagaimana sikap yang tepat jika kita menemukan perbedaan pendapat fiqih dalam masalah-masalah ibadah seperti Shalat dan ibadah-ibadah yang lainnya?</li>
+        </ul>
+      </section>
+
+      <!-- TANDA TANGAN -->
+      <section class="pt-10 border-t mt-10 text-center">
+
+        <p class="italic mb-8">
+        Dikumpulkan kepada: Ustadz Pembimbing Halaqoh
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+          <div>
+            <p class="font-semibold">Tanda Tangan Santri</p>
+             <img src="image/Tanda tangan Final.jpg" class="w-40 mx-auto mt-6">
+            <div class="signature-line"></div>
+            <p class="mt-4">( Rayyan Zamzami Kahfi )</p>
+          </div>
+
+          <div>
+            <p class="font-semibold">Diketahui Ustadz Pembimbing</p>
+            <img src="image/Tanda tangan Ustadz Irfan.jpg" class="w-40 mx-auto mt-6">
+            <div class="signature-line"></div>
+            <p class="mt-4">( Irfan Akmal Hakim )</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
   </div>
-
 </div>
 
 </body>

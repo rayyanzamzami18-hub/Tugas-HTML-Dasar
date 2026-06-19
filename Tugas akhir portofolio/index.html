@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roy ZX - Professional Programmer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
@@ -25,6 +26,14 @@
         .profile-img:hover {
             transform: scale(1.05);
         }
+        .skill-card {
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -88,7 +97,7 @@
 
     <!-- Projects -->
     <section class="py-20 px-4 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">My Projects in First Semester</h2>
+        <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Projek Semester Satu</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Project 1 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card" data-aos="fade-up" data-aos-delay="100">
@@ -200,11 +209,104 @@
         </div>
     </section>
 
+    <section class="py-20 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12">My Skills in Second Semester</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+      <!-- HTML -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <i class="fa-brands fa-html5 text-5xl text-orange-500 mb-4"></i>
+        <h3 class="text-xl font-semibold">HTML 5</h3>
+      </div>
+
+      <!-- CSS -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <i class="fa-brands fa-css3-alt text-5xl text-blue-600 mb-4"></i>
+        <h3 class="text-xl font-semibold">CSS 3</h3>
+      </div>
+
+      <!-- Python -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <i class="fa-brands fa-python text-5xl text-yellow-500 mb-4"></i>
+        <h3 class="text-xl font-semibold">Python</h3>
+      </div>
+
+      <!-- Django -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <i class="fa-solid fa-leaf text-5xl text-green-700 mb-4"></i>
+        <h3 class="text-xl font-semibold">Django</h3>
+      </div>
+
+      <!-- SQL -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <i class="fa-solid fa-database text-5xl text-gray-700 mb-4"></i>
+        <h3 class="text-xl font-semibold">SQL</h3>
+      </div>
+
+      <!-- PostgreSQL (pakai logo image biar asli) -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <img src="image/loner.jpeg" class="w-12 mx-auto mb-4">
+        <h3 class="text-xl font-semibold">PostgreSQL</h3>
+      </div>
+
+      <!-- PythonAnywhere -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <i class="fa-solid fa-cloud text-5xl text-purple-600 mb-4"></i>
+        <h3 class="text-xl font-semibold">PythonAnywhere</h3>
+      </div>
+
+      <!-- CapCut -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <img src="image/Capcut.png" class="w-12 mx-auto mb-4">
+        <h3 class="text-xl font-semibold">CapCut</h3>
+      </div>
+
+      <!-- JavaScript -->
+      <!-- JavaScript -->
+<div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300 md:col-start-2"
+data-aos="fade-up"
+     data-aos-delay="100">
+  <i class="fa-brands fa-js text-5xl text-yellow-400 mb-4"></i>
+  <h3 class="text-xl font-semibold">JavaScript</h3>
+</div>
+
+      <!-- Arabic Language -->
+      <div class="skill-card bg-white p-6 rounded-xl shadow-md transition-all duration-300 md:col-span-1"
+      data-aos="fade-up"
+     data-aos-delay="100">
+        <div class="text-4xl mb-4 font-bold text-green-600 text-center">
+          العربية
+        </div>
+        <h3 class="text-xl font-semibold">Arabic Language</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     <!-- TUGAS SECTION -->
 <section class="py-16">
   <div class="max-w-6xl mx-auto px-6">
 
-    <h2 class="text-3xl font-bold text-center mb-12">My Assignments</h2>
+    <h2 class="text-3xl font-bold text-center mb-12">Projek Semester Dua</h2>
 
     <div class="grid md:grid-cols-2 gap-10">
 
@@ -215,7 +317,7 @@
         <div class="p-6">
           <h3 class="text-xl font-semibold mb-2">Tugas SKL dan Django semester 2</h3>
           <p class="text-gray-600 text-sm">
-            Kumpulan video tugas HTML & CSS.
+             Projek SKL Web Perpustakaan 
           </p>
         </div>
       </a>
@@ -235,6 +337,8 @@
     </div>
   </div>
 </section>
+
+    
 
     <!-- Contact -->
     <section class="py-20 px-4 max-w-4xl mx-auto">

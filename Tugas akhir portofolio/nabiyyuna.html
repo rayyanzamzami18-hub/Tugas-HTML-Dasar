@@ -1,43 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Reflection</title>
+<title>Portofolio Nabiyyuna</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { darkMode: 'class' }
+</script>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
+
+<style>
+.signature-line {
+  border-bottom: 2px solid #666;
+  width: 260px;
+  margin: 60px auto 0;
+}
+</style>
+
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-200 dark:bg-gray-900 transition duration-500">
 
-<div class="max-w-4xl mx-auto py-16 px-6">
+<!-- FLOATING BUTTONS -->
+<div class="fixed top-6 right-6 flex flex-col gap-3 z-50">
 
-  <a href="tugas2.html" class="text-blue-600 hover:underline">
-    ← Back
-  </a>
+  <button onclick="toggleDarkMode()"
+    class="w-12 h-12 flex items-center justify-center
+           bg-black text-white
+           dark:bg-white dark:text-black
+           rounded-full shadow-lg
+           hover:scale-110 transition duration-300">
+    🌙
+  </button>
 
-  <h1 class="text-3xl font-bold mt-6 mb-8">
-    Portfolio Reflection
-  </h1>
+  <button onclick="history.back()"
+    class="w-12 h-12 flex items-center justify-center
+           bg-gray-800 text-white
+           dark:bg-gray-200 dark:text-black
+           rounded-full shadow-lg
+           hover:scale-110 transition duration-300">
+    ←
+  </button>
 
-  <div class="bg-white p-8 rounded-xl shadow leading-relaxed space-y-6">
+</div>
 
-    <p>
-      Di dalam tugas ini saya belajar bagaimana membuat website portfolio
-      menggunakan HTML dan CSS...
-    </p>
+<!-- CONTAINER -->
+<div class="max-w-5xl mx-auto py-16 px-6">
 
-    <p>
-      Tantangan terbesar yang saya hadapi adalah memahami struktur layout
-      dan penggunaan Tailwind CSS...
-    </p>
+  <!-- CARD -->
+  <div class="bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden">
 
-    <p>
-      Dari tugas ini saya menyadari pentingnya konsistensi desain dan
-      struktur kode yang rapi...
-    </p>
+    <!-- COVER -->
+    <div class="relative h-60">
+      <div class="absolute inset-0 bg-gray-700/60 flex items-center justify-center">
+        <h1 class="text-4xl font-bold text-white text-center">
+          PORTOFOLIO NABIYYUNA
+        </h1>
+      </div>
+    </div>
 
+    <!-- CONTENT -->
+    <div class="p-12 text-gray-800 dark:text-gray-200 space-y-14 leading-relaxed text-justify">
+
+      <!-- IDENTITAS -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          IDENTITAS SANTRI
+        </h2>
+
+        <p><strong>Nama :</strong> Rayyan Zamzami Kahfi</p>
+        <p><strong>Kelas :</strong> 10 C</p>
+        <p><strong>Tanggal :</strong> 15-06-2026</p>
+        <p><strong>Nama Kitab & Pengarang :</strong> Nabiyyuna – Ustadz. Dr. Sufyan Baswedan, M.A</p>
+      </section>
+
+      <!-- 1 RINGKASAN -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          1. RINGKASAN ISI KITAB
+        </h2>
+
+        <h3 class="font-semibold mt-4">Tema besar kitab:</h3>
+        <p class="mt-2">
+        Kitab Nabiyyuna menjelaskan perjalanan hidup Nabi Muhammad ﷺ secara ringkas namun padat, mulai dari kelahiran beliau, masa kecil, masa kenabian, perjuangan dakwah di Makkah, hijrah ke Madinah, hingga wafatnya beliau. Penulis menyajikan kisah berdasarkan riwayat-riwayat yang shahih agar pembaca mengenal sirah Nabi dengan benar.
+        </p>
+
+        <h3 class="font-semibold mt-6">Fasal-fasal / bab utama dalam kitab:</h3>
+        <ul class="list-disc pl-6 mt-2 space-y-1">
+          <li>Masa kelahiran dan nasab Nabi ﷺ</li>
+          <li>Masa remaja dan kehidupan sebelum kenabian</li>
+          <li>Diutusnya beliau sebagai Nabi dan Rasul</li>
+          <li>Dakwah di Makkah dan berbagai ujian yang dihadapi</li>
+          <li>Hijrah ke Madinah dan terbentuknya masyarakat Islam</li>
+          <li>Perang-perang besar dan perjanjian penting dalam sejarah Islam</li>
+          <li>Wafatnya Rasulullah ﷺ</li>
+        </ul>
+
+        <h3 class="font-semibold mt-6">Inti pesan / kesimpulan penulis:</h3>
+        <p class="mt-2">
+        Penulis ingin menanamkan kecintaan kepada Nabi Muhammad ﷺ melalui pemahaman sirah yang benar. Dengan mengenal perjuangan, kesabaran, dan akhlak beliau, seorang muslim diharapkan meneladani beliau dalam kehidupan sehari-hari dan menjadikan Rasulullah ﷺ sebagai contoh utama dalam beragama.
+        </p>
+      </section>
+
+      <!-- 2 POIN -->
+      <section>
+        <h2 class="text-2xl font-bold mb-8 border-b pb-2">
+          2. POIN PENJELASAN PENULIS (5 poin pilihan)
+        </h2>
+
+        <div class="space-y-10">
+
+          <!-- POIN 1 KOSONG -->
+          <!-- POIN 1 -->
+<div>
+  <h3 class="text-xl font-bold">Poin 1: Muqoddimah Sirah</h3>
+
+  <p><strong>Isi poin yang disampaikan penulis:</strong> 
+  Penulis menjelaskan pentingnya mempelajari sirah Nabi Muhammad ﷺ sebelum masuk ke pembahasan detail perjalanan hidup beliau. Sirah bukan sekadar cerita sejarah, tetapi pelajaran kehidupan yang berisi nilai keimanan, kesabaran, perjuangan, dan keteladanan. Dengan memahami sirah, seorang muslim dapat mengenal Rasulullah ﷺ lebih dekat dan menjadikan beliau sebagai teladan dalam seluruh aspek kehidupan.
+  </p>
+
+  <p><strong>Dalil / contoh yang disebutkan:</strong> 
+  Firman Allah ﷻ dalam Al-Qur’an yang menjelaskan bahwa pada diri Rasulullah ﷺ terdapat suri teladan yang baik bagi orang-orang yang mengharap rahmat Allah dan hari akhir (QS. Al-Ahzab: 21).
+  </p>
+
+  <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> 
+  Saya menyadari bahwa mempelajari sirah bukan hanya untuk mengetahui kisah masa lalu, tetapi untuk mencontoh akhlak dan perjuangan Nabi ﷺ dalam kehidupan sehari-hari. Dengan mengenal beliau lebih dalam, saya menjadi lebih mencintai dan ingin meneladani beliau.
+  </p>
+</div>
+
+          <!-- POIN 2 -->
+          <div>
+            <h3 class="text-xl font-bold">Poin 2: Pernikahan Nabi dengan Khadijah</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Nabi Muhammad ﷺ menikah dengan Khadijah رضي الله عنها yang merupakan wanita mulia dan terpandang. Pernikahan ini menjadi awal dukungan besar terhadap dakwah Nabi.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Khadijah adalah orang pertama yang beriman kepada Nabi ﷺ dan selalu mendukung beliau dalam masa-masa sulit.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya belajar bahwa pasangan yang baik adalah yang saling mendukung dalam kebaikan dan perjuangan di jalan Allah.</p>
+          </div>
+
+          <!-- POIN 3 -->
+          <div>
+            <h3 class="text-xl font-bold">Poin 3: Keikutsertaan Nabi dalam pembangunan Ka'bah</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Nabi ﷺ ikut serta dalam pembangunan Ka'bah sebelum beliau diangkat menjadi Rasul. Beliau juga menyelesaikan perselisihan peletakan Hajar Aswad dengan cara yang bijaksana.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Nabi mengusulkan agar batu Hajar Aswad diletakkan di atas kain dan diangkat bersama oleh para pemuka suku.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya belajar pentingnya kebijaksanaan dan keadilan dalam menyelesaikan konflik.</p>
+          </div>
+
+          <!-- POIN 4 -->
+          <div>
+            <h3 class="text-xl font-bold">Poin 4: Diutusnya beliau menjadi Nabi dan proses dakwah di Makkah</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Wahyu pertama turun di Gua Hira melalui Malaikat Jibril. Nabi ﷺ memulai dakwah secara sembunyi-sembunyi kemudian terang-terangan, menghadapi berbagai penolakan dan siksaan dari kaum Quraisy.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Turunnya Surah Al-‘Alaq ayat 1-5 sebagai wahyu pertama dan berbagai kisah penyiksaan terhadap para sahabat.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya menyadari bahwa perjuangan menegakkan kebenaran membutuhkan kesabaran dan keteguhan iman.</p>
+          </div>
+
+          <!-- POIN 5 -->
+          <div>
+            <h3 class="text-xl font-bold">Poin 5: Hijrah ke Madinah dan Peristiwa-peristiwa yang terjadi setelahnya</h3>
+            <p><strong>Isi poin yang disampaikan penulis:</strong> Nabi ﷺ berhijrah ke Madinah untuk menyelamatkan dakwah. Di Madinah, beliau membangun masjid, mempersaudarakan kaum Muhajirin dan Anshar, serta membentuk masyarakat Islam yang kuat.</p>
+            <p><strong>Dalil / contoh yang disebutkan:</strong> Peristiwa Piagam Madinah dan berbagai peperangan seperti Badar, Uhud, dan Khandaq.</p>
+            <p><strong>Pemahaman / refleksi saya terhadap poin ini:</strong> Saya belajar bahwa hijrah bukan hanya berpindah tempat, tetapi berpindah menuju kehidupan yang lebih baik dan lebih taat kepada Allah.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3 REFLEKSI -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          3. REFLEKSI PRIBADI
+        </h2>
+
+        <p><strong>Perubahan cara pandang (minimal 2 hal):</strong><br>
+        Saya menjadi lebih memahami betapa berat perjuangan Nabi ﷺ dalam menyampaikan Islam.<br>
+        Saya semakin mencintai Rasulullah ﷺ setelah mengetahui kisah hidup dan pengorbanan beliau.<br>
+        Saya juga menyadari pentingnya meneladani akhlak beliau dalam kehidupan sehari-hari.
+        </p>
+
+        <p class="mt-6"><strong>Amalan konkret yang akan mulai dipraktikkan:</strong><br>
+        Saya akan berusaha meneladani akhlak Nabi ﷺ seperti sabar, jujur, dan rendah hati dalam kehidupan sehari-hari.
+        </p>
+      </section>
+
+      <!-- 4 PERTANYAAN -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+          4. PERTANYAAN YANG MASIH BELUM TERJAWAB
+        </h2>
+
+        <p><strong>Pertanyaan 1:</strong><br>
+        Bagaimana cara terbaik meneladani akhlak Nabi ﷺ di zaman modern yang penuh tantangan ini?
+        </p>
+
+        <p class="mt-6"><strong>Pertanyaan 2:</strong><br>
+        Bagaimana kita bisa menjaga semangat dakwah seperti para sahabat di tengah kesibukan sekolah dan kehidupan sehari-hari?
+        </p>
+      </section>
+
+      <!-- TANDA TANGAN -->
+      <section class="pt-10 border-t mt-10 text-center">
+
+        <p class="italic mb-8">
+        Dikumpulkan kepada: Ustadz Pembimbing Halaqoh
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+          <div>
+            <p class="font-semibold">Tanda Tangan Santri</p>
+             <img src="image/Tanda tangan Final.jpg" class="w-40 mx-auto mt-6">
+            <div class="signature-line"></div>
+            <p class="mt-4">( Rayyan Zamzami Kahfi )</p>
+          </div>
+
+          <div>
+            <p class="font-semibold">Diketahui Ustadz Pembimbing</p>
+            <img src="image/Tanda tangan Ustadz Irfan.jpg" class="w-40 mx-auto mt-6">
+            <div class="signature-line"></div>
+            <p class="mt-4">( Irfan Akmal Hakim )</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
   </div>
-
 </div>
 
 </body>
